@@ -4,7 +4,7 @@ Boilerplate code for a bare bones React frontend that can be used to build UI de
 
 > The goal for this code base is to be as beginner friendly as possible. The app has a crude routing implementation and does not utilize any 3rd party state management tools. In addition, it does not include a connected backend, it utilizes browser based local storage for occasions where a backend database would be useful.  If you're interested in a version of this app that contains additional functionality, please file an [issue](https://github.com/cloud-elements/saas-demo-boilerplate-ui/issues/new).
 
-<img width="1187" alt="UI Screenshot" src="https://cl.ly/3R3F2T330n1e/Screen%20Recording%202018-03-02%20at%2010.54%20AM.gif">
+<img width="1187" alt="UI Screenshot" src="https://user-images.githubusercontent.com/13838430/92042857-af1fad00-ed40-11ea-9291-2e75d710a870.gif">
 
 
 ## Installation

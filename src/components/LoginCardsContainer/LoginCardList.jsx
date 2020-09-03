@@ -63,7 +63,13 @@ class LoginCardList extends Component {
                     elementKey: "googleadwords",
                     logo: `https://my-${process.env.REACT_APP_CE_ENV}.cloudelements.io/assets/img/elements/googleadwords.svg`,
                     vendorApiKey: process.env.REACT_APP_GOOGLE_ADWORDS_KEY,
-                    vendorSecret: process.env.REACT_APP_GOOGLE_ADWORDS_SECRET
+                    vendorSecret: process.env.REACT_APP_GOOGLE_ADWORDS_SECRET,
+                    configs: {
+                        "google.adwords.developer.token": {
+                            type: "string",
+                            label: "Set the Base URL"
+                        }
+                    }
                 },
                 {
                     nameText: "Pardot by Salesforce",

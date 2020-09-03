@@ -7,6 +7,15 @@ The Ezra Sample Application is a full simple application for React/Redux, demons
 <img width="1187" alt="UI Screenshot" src="https://user-images.githubusercontent.com/13838430/92042857-af1fad00-ed40-11ea-9291-2e75d710a870.gif">
 
 ## Installation
+
+### Docker
+Skip any dependencies and just run the following to get started:
+
+```bash
+$ docker-compose -f deploy/docker-compose.yaml up --build
+```
+### Node
+
 If you don't have `node` and `npm` installed, do [that](https://docs.npmjs.com/getting-started/installing-node) first.
 
 > The project was developed on `node` version `v10.20.1` and `npm` version `6.14.4`. However, `node` version >= `8` and `npm` version >= `4.1.2` should suffice.

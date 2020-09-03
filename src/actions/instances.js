@@ -25,7 +25,6 @@ const handleOAuthLoginEvent = (event, res, rej, handler) => {
 
   // TT:TODO parse listener response. it, and if we find an error, or there's no query parameters...something went wrong
   const eventData = event.data;
-  console.log('eventData parse', eventData);
   if (!eventData || !eventData.success) rej({message: `Failed to retrieve instance data from: ${JSON.stringify(event.data)}, ${JSON.stringify(eventData.error)}`});
 
   res({data: eventData.data});

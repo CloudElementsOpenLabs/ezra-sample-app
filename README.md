@@ -54,6 +54,14 @@ REACT_APP_URL=https://c720e32b.ngrok.io
 ```
 
 ## Running
+
+### Docker
+```bash
+$ docker-compose -f deploy/docker-compose.yaml up --build
+```
+
+### YARN/NPM
+
 ```bash
 # Fire that bad boy up:
 $ yarn start

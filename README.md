@@ -6,6 +6,14 @@ The Ezra Sample Application is a full simple application for React/Redux, demons
 
 <img width="1187" alt="UI Screenshot" src="https://user-images.githubusercontent.com/13838430/92042857-af1fad00-ed40-11ea-9291-2e75d710a870.gif">
 
+## Features
+
+* Responsive
+* Simplified integration provisioning (Ezra)
+* [Material UI](https://material-ui.com/) styling
+* [Router](https://github.com/supasate/connected-react-router)/[Redux](https://redux.js.org/)/[React](https://reactjs.org/) included
+* [Docker](https://www.docker.com/) container for production build
+
 ## Installation
 
 ### Docker

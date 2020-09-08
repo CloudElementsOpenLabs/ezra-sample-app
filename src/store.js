@@ -11,6 +11,8 @@ import reducers from './reducers';
 
 export const history = createBrowserHistory();
 
+// Retrieve the persisted state from the localstorage
+// -> This is set continusously in the index.js using the subscription method
 const getPersistedState = () => db.get(process.env.REACT_APP_LOCALSTORAGE_KEY);
 
 export default(initialState) => {

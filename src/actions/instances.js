@@ -1,6 +1,6 @@
 import {ALERT_NOTIFICATION, INSTANCE_DELETION_SUCCESS, INSTANCE_DELETION_FAILURE, INSTANCE_CREATING, INSTANCE_SUCCESS, INSTANCE_FAILURE} from './action-types';
 import queryString from 'query-string';
-import {handleResponse} from '../ce-util';
+import {handleResponse} from '../utils/ce-util';
 
 const instanceCreating = activeElement => ({type: INSTANCE_CREATING, activeElement});
 const instanceSuccess = data => ({type: INSTANCE_SUCCESS, data});

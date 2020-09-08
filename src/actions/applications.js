@@ -1,5 +1,5 @@
 import {ALERT_NOTIFICATION, APPLICATION_RETRIEVAL_LOADING, APPLICATION_RETRIEVAL_SUCCESS, APPLICATION_RETRIEVAL_FAILURE} from './action-types';
-import {handleResponse} from '../ce-util';
+import {handleResponse} from '../utils/ce-util';
 
 const applicationRetrievalLoading = () => ({type: APPLICATION_RETRIEVAL_LOADING});
 const applicationRetrievalSuccess = data => ({type: APPLICATION_RETRIEVAL_SUCCESS, data});

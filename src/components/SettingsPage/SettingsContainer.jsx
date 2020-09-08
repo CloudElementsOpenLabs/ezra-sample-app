@@ -7,7 +7,7 @@ import {Button, Paper, Typography} from '@material-ui/core';
 import StyleIcon from '@material-ui/icons/Style';
 
 // Internal dependencies
-import {isNilOrEmpty} from '../../ce-util';
+import {isNilOrEmpty} from '../../utils/ce-util';
 import DataDrawer from '../Drawers/DataDrawer';
 import {retrieveApplication} from '../../actions/applications';
 

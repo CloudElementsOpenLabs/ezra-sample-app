@@ -1,8 +1,11 @@
+// External dependencies
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import {Drawer, Typography, TextField} from '@material-ui/core';
-import {createTitleText, isObject, isNilOrEmpty} from '../../ce-util';
+
+// Internal dependencies
+import {createTitleText, isObject, isNilOrEmpty} from '../../utils/ce-util';
 
 const styles = theme => ({
   cardTitle: {
@@ -74,7 +77,10 @@ const DataDrawer = ({ classes, theme, isOpen, toggleDrawer, getData, data, title
           .map(key => {
               const value = details[key];
               return isObject(value)
-                  ? <div key={`div-${key}`} className={classes.divMargin}><h3>{createTitleText(key)}</h3>{retrieveTextFields(value)}</div>
+                  ? (<div key={`div-${key}`} className={classes.divMargin}>
+                        <h3>{createTitleText(key)}</h3>
+                        {retrieveTextFields(value)}
+                     </div>)
                   : <div key={`div-${key}`} className={classes.divMargin}>{retrieveTextField(key, value, multiLineFields.includes(key))}</div>;
           });
   }

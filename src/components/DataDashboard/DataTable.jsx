@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { Paper, Table, TableHead, TableBody, TableCell, TableRow, Toolbar, Typography } from '@material-ui/core';
-import { createTitleText } from '../../ce-util';
+import { createTitleText } from '../../utils/ce-util';
 
 const styles = theme => ({
   root: {

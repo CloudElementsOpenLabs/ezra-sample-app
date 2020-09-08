@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 
 // Internal dependencies
-import {isNilOrEmpty} from '../../ce-util';
+import {isNilOrEmpty} from '../../utils/ce-util';
 import {retrieveObjects} from '../../actions/objects';
 import {instanceFailure} from '../../actions/instances';
 import LoginCard from './LoginCard/LoginCard.jsx';

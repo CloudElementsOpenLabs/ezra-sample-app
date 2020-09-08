@@ -12,7 +12,7 @@ For the contents:
 
 ### Example State
 
-> Details elimanated for brevity
+> Details eliminated for brevity
 
 ```json
 {

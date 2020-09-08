@@ -1,10 +1,10 @@
-import {ALERT_NOTIFICATION, OBJECT_RETRIEVAL_LOADING, OBJECT_RETRIEVAL_SUCCESS, OBJECT_RETRIEVAL_FAILURE} from './action-types';
+import {OBJECT_RETRIEVAL_LOADING, OBJECT_RETRIEVAL_SUCCESS, OBJECT_RETRIEVAL_FAILURE} from './action-types';
+import {alertFailure} from './alert';
 import {handleResponse} from '../utils/ce-util';
 
 const objectRetrievalLoading = () => ({type: OBJECT_RETRIEVAL_LOADING});
 const objectRetrievalSuccess = data => ({type: OBJECT_RETRIEVAL_SUCCESS, data});
 const objectRetrievalFailure = error => ({type: OBJECT_RETRIEVAL_FAILURE, error});
-const alertFailure = (message) => ({type: ALERT_NOTIFICATION, alert: {open: true, alertType: "error", message}});
 
 const getObjects = (ceKeys, instance) => {
   return () => {

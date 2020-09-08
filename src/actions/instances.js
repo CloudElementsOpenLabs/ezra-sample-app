@@ -1,5 +1,9 @@
-import {ALERT_NOTIFICATION, INSTANCE_DELETION_SUCCESS, INSTANCE_DELETION_FAILURE, INSTANCE_CREATING, INSTANCE_SUCCESS, INSTANCE_FAILURE} from './action-types';
+// External dependencies
 import queryString from 'query-string';
+
+// Internal dependencies
+import {INSTANCE_DELETION_SUCCESS, INSTANCE_DELETION_FAILURE, INSTANCE_CREATING, INSTANCE_SUCCESS, INSTANCE_FAILURE} from './action-types';
+import {alertFailure, alertSuccess} from './alert';
 import {handleResponse} from '../utils/ce-util';
 
 const instanceCreating = activeElement => ({type: INSTANCE_CREATING, activeElement});
@@ -7,8 +11,6 @@ const instanceSuccess = data => ({type: INSTANCE_SUCCESS, data});
 export const instanceFailure = error => ({type: INSTANCE_FAILURE, error});
 const instanceDeletionSuccess = elementKey => ({type: INSTANCE_DELETION_SUCCESS, elementKey});
 const instanceDeletionFailure = error => ({type: INSTANCE_DELETION_FAILURE, error});
-const alertSuccess = (message) => ({type: ALERT_NOTIFICATION, alert: {open: true, alertType: "success", message}});
-const alertFailure = (message) => ({type: ALERT_NOTIFICATION, alert: {open: true, alertType: "error", message}});
 
 const handleOAuthLoginEvent = (event, res, rej, handler) => {
   if (window.location.href.indexOf(event.origin) === 0) {
@@ -23,7 +25,6 @@ const handleOAuthLoginEvent = (event, res, rej, handler) => {
   //     return;
   // }
 
-  // TT:TODO parse listener response. it, and if we find an error, or there's no query parameters...something went wrong
   const eventData = event.data;
   if (!eventData || !eventData.success) rej({message: `Failed to retrieve instance data from: ${JSON.stringify(event.data)}, ${JSON.stringify(eventData.error)}`});
 
@@ -106,7 +107,6 @@ export const getEzraRedirectUrl = (ceKeys, vendorData) => {
       .then(r => {
         console.log('Connection creation success', r);
         dispatch(instanceSuccess({ [elementKey] : r.data.elementInstance }));
-        // db.add(`ezra-test-${vendorData.elementKey}`, r.data);
         dispatch(alertSuccess("Connection created successfully"));
     })
       .catch(e => {

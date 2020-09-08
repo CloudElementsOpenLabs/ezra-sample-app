@@ -189,7 +189,9 @@ LoginCardList.propTypes = {
     ceKeys: PropTypes.object.isRequired,
     classes: PropTypes.object.isRequired,
     getObjects: PropTypes.func.isRequired,
-    objects: PropTypes.arrayOf(PropTypes.string),
+    objects: PropTypes.shape({
+        elementKey: PropTypes.arrayOf(PropTypes.string)
+    }),
     latestElementKey: PropTypes.string,
     latestElementName: PropTypes.string,
     isObjectsLoading: PropTypes.bool,

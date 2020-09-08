@@ -16,29 +16,7 @@ The Ezra Sample Application is a full simple application for React/Redux, demons
 
 ## Installation
 
-### Docker
-Skip any dependencies and just run the following to get started:
-
-```bash
-$ docker-compose -f deploy/docker-compose.yaml up --build
-```
-### Node
-
-If you don't have `node` and `npm` installed, do [that](https://docs.npmjs.com/getting-started/installing-node) first.
-
-> The project was developed on `node` version `v10.20.1` and `npm` version `6.14.4`. However, `node` version >= `8` and `npm` version >= `4.1.2` should suffice.
-
-Navigate into the project directory and install package dependencies.
-
-```bash
-# Make sure you are in the correct directory
-$ cd ezra-sample-app
-
-# Install all necessary npm packages:
-$ npm install
-# or
-$ yarn install
-```
+### Environment Variables
 
 This application requires an [envirionment file](https://create-react-app.dev/docs/adding-custom-environment-variables/) to run. The environment file contains URLs, application IDs, and OAuth keys that are referenced throughout the project in the interest of keeping it easily adjustable. A sample environment file has been provided for you in [.env](https://github.com/cloud-elements/ezra-sample-app/blob/main/.env). However, you can create a local environment file to override it:
 
@@ -68,6 +46,30 @@ Add the https url where your app is available so that vendor OAuth flows know wh
 ```
 ## Misc
 REACT_APP_URL=https://c720e32b.ngrok.io
+```
+
+### Docker
+Skip any dependencies and just run the following to get started:
+
+```bash
+$ docker-compose -f deploy/docker-compose.yaml up --build
+```
+### Node
+
+If you don't have `node` and `npm` installed, do [that](https://docs.npmjs.com/getting-started/installing-node) first.
+
+> The project was developed on `node` version `v10.20.1` and `npm` version `6.14.4`. However, `node` version >= `8` and `npm` version >= `4.1.2` should suffice.
+
+Navigate into the project directory and install package dependencies.
+
+```bash
+# Make sure you are in the correct directory
+$ cd ezra-sample-app
+
+# Install all necessary npm packages:
+$ npm install
+# or
+$ yarn install
 ```
 
 ## Running

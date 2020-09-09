@@ -50,6 +50,7 @@ const SettingsContainer = ({appDetails, ceKeys, classes, isApplicationLoading, g
                 isOpen={isDrawerOpen}
                 toggleDrawer={() => toggleDrawer(!isDrawerOpen)}
             />}
+            {/* Application section - likely admin only */}
             <Paper className={classes.root} elevation={4}>
                 <Typography component="h2" className={classes.cardTitle}>
                     Application
@@ -69,6 +70,7 @@ const SettingsContainer = ({appDetails, ceKeys, classes, isApplicationLoading, g
                     </Button>
                 </div>
             </Paper>
+            {/* Branding section - likely admin only */}
             <Paper className={classes.root} elevation={4}>
                 <Typography component="h2" className={classes.cardTitle}>
                     Branding

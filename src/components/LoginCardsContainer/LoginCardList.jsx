@@ -11,7 +11,7 @@ import {retrieveObjects} from '../../actions/objects';
 import {instanceFailure} from '../../actions/instances';
 import LoginCard from './LoginCard/LoginCard.jsx';
 import DataDrawer from '../Drawers/DataDrawer';
-import Mask from './Mask.jsx';
+import Mask from '../General/Mask';
 
 const styles = theme => ({
     mask: {
@@ -168,7 +168,7 @@ class LoginCardList extends Component {
                 <Mask
                     classStyle={classes.mask}
                     showMask={showMask}
-                    elementName={latestElementName}
+                    loadingText={`Connecting to ${latestElementName || 'integration'}...`}
                     toggleMask={cancelInstance}
                 />
                 {selectedInstance && <DataDrawer

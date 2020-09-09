@@ -11,5 +11,5 @@ The `/src` directory contains all the source code for the project.
   * The `Redux` provider and store to establish connectivity and global state. 
   * The `ConnectedRouter` provides `React`/`Redux` routing within the application.
   * The store subscription, which continuously propagates the `Redux` state to the local storage to preserve the session.
-* The [store.js](https://github.com/cloud-elements/ezra-sample-app/blob/main/src/store.js) provides the reducers, initial state, and middlewares for `Redux` to work properly. This is leveraged by the `index.js`. For debugging purposes, I've also included [redux-logger](https://github.com/LogRocket/redux-logger) to easily track `redux` actions.
+* The [store.js](https://github.com/cloud-elements/ezra-sample-app/blob/main/src/store.js) provides the reducers, initial state, and middlewares for `Redux` to work properly. This is leveraged by the `index.js`. For debugging purposes, I've also included [redux-logger](https://github.com/LogRocket/redux-logger) to easily track `Redux` actions.
 * The [App.jsx](https://github.com/cloud-elements/ezra-sample-app/blob/main/src/App.jsx) is the starting point for the actual application code. It wraps the internal [BaseTemplate](https://github.com/cloud-elements/ezra-sample-app/blob/main/src/components/General/BaseTemplate.jsx) with a theme. 

@@ -1,16 +1,16 @@
 // External dependencies
 import React from 'react';
+import { withRouter, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { Divider, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
-import {withRouter, Link} from 'react-router-dom';
-
-// Internal dependencies
 import ContactIcon from '@material-ui/icons/Contacts';
 import IntegrationIcon from '@material-ui/icons/Extension';
 import SettingsIcon from '@material-ui/icons/Settings';
 import AccountIcon from '@material-ui/icons/Work';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+
+// Internal dependencies
 import {routes} from '../../utils/routes';
 
 const styles = theme => ({

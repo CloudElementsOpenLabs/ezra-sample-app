@@ -2,7 +2,7 @@
 import React from "react";
 import {Backdrop, Box, Button, CircularProgress, Typography} from '@material-ui/core';
 
-const Mask = ({classStyle, showMask, elementName, toggleMask}) => {
+const Mask = ({classStyle, showMask, loadingText, toggleMask}) => {
   return (
     <Backdrop className={classStyle} open={showMask}>
       <Box position="relative" display="inline-flex">
@@ -23,7 +23,7 @@ const Mask = ({classStyle, showMask, elementName, toggleMask}) => {
                   paddingTop: '4rem'
               }}>
                   <Typography variant="subtitle1" component="p" color="initial">
-                      {`Connecting to ${elementName || 'integration'}...`}
+                      {loadingText}
                   </Typography>
                   <Button color="secondary" onClick={() => toggleMask(false)}>Cancel</Button>
               </div>

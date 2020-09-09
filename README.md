@@ -33,7 +33,7 @@ REACT_APP_CE_ORG={your-cloud-elements-org-token}
 REACT_APP_CE_ENV=[optional for using staging or snapshot, app defaults to production]
 ```
 
-Add your vendor OAuth app keys to the `.env.local` file. Only one set is needed for the app to function, but total number is unlimited. These keys are utilized in the [LoginCardList component](https://github.com/cloud-elements/ezra-sample-app/tree/main/src/components/LoginCardsContainer).
+Add your vendor OAuth app keys to the `.env.local` file. Only one set is needed for the app to function, but the total number is unlimited. These keys are utilized in the [LoginCardList component](https://github.com/cloud-elements/ezra-sample-app/tree/main/src/components/LoginCardsContainer).
 
 ```
 ## Vendor App keys
@@ -41,6 +41,7 @@ REACT_APP_HUBSPOT_KEY={your-hubspot-oauth-app-key}
 REACT_APP_HUBSPOT_SECRET={your-hubspot-oauth-app-secret}
 ```
 
+//TT:TODO
 Add the https url where your app is available so that vendor OAuth flows know where to return to after a user signs in.
 
 ```

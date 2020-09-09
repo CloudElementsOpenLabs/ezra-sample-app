@@ -89,8 +89,7 @@ const createSession = (ceKeys, data) => {
   };
 };
 
-// TODO change name
-export const getEzraRedirectUrl = (ceKeys, vendorData) => {
+export const getOAuthRedirectUrl = (ceKeys, vendorData) => {
   const elementKey = vendorData.elementKey;
   return (dispatch) => {
     dispatch(instanceCreating({key: elementKey, name: vendorData.nameText}));

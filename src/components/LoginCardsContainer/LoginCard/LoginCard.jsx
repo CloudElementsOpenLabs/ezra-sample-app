@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 
 // Internal dependencies
 import ConnectButton from './ConnectButton';
-import {getEzraRedirectUrl, removeInstance} from '../../../actions/instances';
+import {getOAuthRedirectUrl, removeInstance} from '../../../actions/instances';
 
 const styles = theme => ({
     loginCard: {
@@ -32,9 +32,7 @@ const styles = theme => ({
     }
   });
 
-// class LoginCard extends Component {
 const LoginCard = ({ ceKeys, classes, createConnection, deleteConnection, instance, isConnected, toggleDrawer, vendorData }) => {
-    // const { ceKeys, classes, createConnection, deleteConnection, instance, isConnected, toggleDrawer, vendorData } = this.props;
     const {nameText, logo} = vendorData;
     const cardSubHeader = isConnected
         ? `${nameText} is connected.`
@@ -71,7 +69,6 @@ const LoginCard = ({ ceKeys, classes, createConnection, deleteConnection, instan
             <CardActions className={classes.cardActions}>
                 <ConnectButton
                     ceKeys={ceKeys}
-                    cleanupInstance={this.cleanupInstance}
                     connected={isConnected}
                     instance={instance}
                     deleteConnection={deleteConnection}
@@ -90,6 +87,7 @@ LoginCard.propTypes = {
     deleteConnection: PropTypes.func.isRequired,
     instance: PropTypes.object,
     isConnected: PropTypes.bool,
+    toggleDrawer: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, props) => {
@@ -98,13 +96,12 @@ const mapStateToProps = (state, props) => {
     return {
         instance,
         isConnected: !!instance, // check existance
-        // sessionError: state.session.hasError,
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        createConnection: (keys, values) => dispatch(getEzraRedirectUrl(keys, values)),
+        createConnection: (keys, values) => dispatch(getOAuthRedirectUrl(keys, values)),
         deleteConnection: (keys, instance) => dispatch(removeInstance(keys, instance))
     };
 };

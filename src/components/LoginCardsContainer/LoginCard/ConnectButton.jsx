@@ -1,7 +1,8 @@
+// External dependencies
 import React from 'react';
 import {Button, Menu, MenuItem} from '@material-ui/core';
 
-const ConnectButton = ({ ceKeys, connected, cleanupInstance, deleteConnection, instance, oauthRedirectSend, setAlert, toggleDrawer, vendorData }) => {
+const ConnectButton = ({ ceKeys, connected, deleteConnection, instance, oauthRedirectSend, setAlert, toggleDrawer, vendorData }) => {
     const [menuAnchor, setAnchorEl] = React.useState(null);
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);

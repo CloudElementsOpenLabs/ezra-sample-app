@@ -50,8 +50,7 @@ const handleOAuthLogin = (oauthWindow, oauthUrl) => {
           oauthWindow.postMessage({ready: true}, '*');
       } catch(e) {
           // Do nada
-      }
-      }, 500);
+      }}, 500);
   
       messageHandler = evt => handleOAuthLoginEvent(evt, res, rej, messageHandler);
   

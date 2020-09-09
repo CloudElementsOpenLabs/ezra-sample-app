@@ -1,3 +1,4 @@
+// External dependencies
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
@@ -7,6 +8,8 @@ import {AppBar, IconButton, Divider, Drawer, Snackbar, Toolbar, Typography} from
 import Alert from '@material-ui/lab/Alert';
 import {Menu, MenuOpen} from '@material-ui/icons';
 import {Route, Switch} from 'react-router-dom';
+
+// Internal dependencies
 import {clearAlert} from '../../actions/alert';
 import Accounts from '../../pages/Accounts';
 import Contacts from '../../pages/Contacts';

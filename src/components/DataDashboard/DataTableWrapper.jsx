@@ -1,7 +1,10 @@
 /* eslint-disable import/first */
+// External dependencies
 import React, { Component } from 'react';
 import { Alert, AlertTitle } from '@material-ui/lab';
 import db from 'store2';
+
+// Internal dependencies
 import { dummyDataGenerator, dummyHeaderGenerator } from './dummyDataGenerator';
 import DataTable from './DataTable';
 

@@ -5,13 +5,12 @@ import PropTypes from 'prop-types';
 // Internal dependencies
 import LoginCardList from '../components/LoginCardsContainer/LoginCardList';
 
-const Integrations = ({ ceKeys, appUrl }) => {
+const Integrations = ({ ceKeys }) => {
 
   return (
       <React.Fragment>
           <LoginCardList
             ceKeys={ceKeys}
-            appUrl={appUrl}
           />
       </React.Fragment>
   );
@@ -19,7 +18,6 @@ const Integrations = ({ ceKeys, appUrl }) => {
 
 Integrations.propTypes = {
   ceKeys: PropTypes.object.isRequired,
-  appUrl: PropTypes.string,
 };
 
 export default Integrations;

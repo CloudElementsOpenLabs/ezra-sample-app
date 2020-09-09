@@ -22,24 +22,21 @@ class App extends Component {
     constructor(props) {
         super(props);
         // Cloud Elements tokens to be used. This should be your admin account where you want to monitor all users' instances
-        const ce_keys = {
-            orgToken: process.env.REACT_APP_CE_ORG,
-            userToken: process.env.REACT_APP_CE_USER,
-            ceEnv: process.env.REACT_APP_CE_ENV,
-        };
         this.state = {
-            ceKeys: ce_keys,
-            appUrl: process.env.REACT_APP_URL
+            ceKeys: {
+                orgToken: process.env.REACT_APP_CE_ORG,
+                userToken: process.env.REACT_APP_CE_USER,
+                ceEnv: process.env.REACT_APP_CE_ENV,
+            },
         }
     }
 
     render() {
-        const {ceKeys, appUrl} = this.state;
+        const {ceKeys} = this.state;
         return (
             <ThemeProvider theme={theme}>
                 <BaseTemplate
                     ceKeys={ceKeys}
-                    appUrl={appUrl}
                 />
             </ThemeProvider>
         );

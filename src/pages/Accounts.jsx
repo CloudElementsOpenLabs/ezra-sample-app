@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 // Internal dependencies
 import DataTableWrapper from '../components/DataDashboard/DataTableWrapper';
 
-const Accounts = ({ ceKeys, appUrl, route = 'accounts' }) => {
+const Accounts = ({ ceKeys, route = 'accounts' }) => {
 
   return (
       <React.Fragment>
@@ -20,7 +20,6 @@ const Accounts = ({ ceKeys, appUrl, route = 'accounts' }) => {
 
 Accounts.propTypes = {
   ceKeys: PropTypes.object.isRequired,
-  appUrl: PropTypes.string.isRequired,
   route: PropTypes.string,
 };
 

@@ -5,13 +5,12 @@ import PropTypes from 'prop-types';
 // Internal dependencies
 import SettingsContainer from '../components/SettingsPage/SettingsContainer';
 
-const Settings = ({ ceKeys, appUrl }) => {
+const Settings = ({ ceKeys }) => {
 
   return (
       <React.Fragment>
           <SettingsContainer
             ceKeys={ceKeys}
-            appUrl={appUrl}
           />
       </React.Fragment>
   );
@@ -19,7 +18,6 @@ const Settings = ({ ceKeys, appUrl }) => {
 
 Settings.propTypes = {
   ceKeys: PropTypes.object.isRequired,
-  appUrl: PropTypes.string,
 };
 
 export default Settings;

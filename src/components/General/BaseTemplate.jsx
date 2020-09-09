@@ -106,7 +106,7 @@ class BaseTemplate extends Component {
   };
 
   render() {
-      const { alert, appUrl, classes, ceKeys, updateAlert} = this.props;
+      const { alert, classes, ceKeys, updateAlert} = this.props;
       const { open } = this.state;
 
       return (
@@ -152,12 +152,12 @@ class BaseTemplate extends Component {
           <main className={classes.content}>
             <div className={classes.toolbar} />
             <Switch>
-                <Route exact path={routes.accounts} render={(props) => <Accounts ceKeys={ceKeys} appUrl={appUrl}  {...props} />} />
-                <Route exact path={routes.contacts} render={(props) => <Contacts ceKeys={ceKeys} appUrl={appUrl} {...props} />} />
-                <Route exact path={routes.orders} render={(props) => <Orders ceKeys={ceKeys} appUrl={appUrl} {...props} />} />
-                <Route exact path={routes.integrations} render={(props) => <Integrations ceKeys={ceKeys} appUrl={appUrl} {...props} />} />
-                <Route exact path={routes.settings} render={(props) => <Settings ceKeys={ceKeys} appUrl={appUrl} {...props} />} />
-                <Route exact path="/" render={(props) => <Welcome ceKeys={ceKeys} appUrl={appUrl} {...props} />} />
+                <Route exact path={routes.accounts} render={(props) => <Accounts ceKeys={ceKeys} {...props} />} />
+                <Route exact path={routes.contacts} render={(props) => <Contacts ceKeys={ceKeys} {...props} />} />
+                <Route exact path={routes.orders} render={(props) => <Orders ceKeys={ceKeys} {...props} />} />
+                <Route exact path={routes.integrations} render={(props) => <Integrations ceKeys={ceKeys} {...props} />} />
+                <Route exact path={routes.settings} render={(props) => <Settings ceKeys={ceKeys} {...props} />} />
+                <Route exact path="/" render={(props) => <Welcome ceKeys={ceKeys} {...props} />} />
             </Switch>
             {/* Section for displaying any alerts to the user */}
             {alert && <Snackbar open={alert.open} autoHideDuration={5000} onClose={updateAlert}>

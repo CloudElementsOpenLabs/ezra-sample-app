@@ -41,14 +41,6 @@ REACT_APP_HUBSPOT_KEY={your-hubspot-oauth-app-key}
 REACT_APP_HUBSPOT_SECRET={your-hubspot-oauth-app-secret}
 ```
 
-//TT:TODO
-Add the https url where your app is available so that vendor OAuth flows know where to return to after a user signs in.
-
-```
-## Misc
-REACT_APP_URL=https://c720e32b.ngrok.io
-```
-
 ### Docker
 Skip any dependencies and just run the following to get started:
 

@@ -1,6 +1,10 @@
 import {ALERT_NOTIFICATION} from './action-types';
 const clearAlertNotif = () => ({type: ALERT_NOTIFICATION });
 
+/**
+ * Failure alert definition
+ * @param {String} message 
+ */
 export const alertFailure = (message) => ({
   type: ALERT_NOTIFICATION,
   alert: {
@@ -10,6 +14,10 @@ export const alertFailure = (message) => ({
   }
 });
 
+/**
+ * Successful alert definition
+ * @param {String} message 
+ */
 export const alertSuccess = (message) => ({
   type: ALERT_NOTIFICATION,
   alert: {
@@ -19,6 +27,9 @@ export const alertSuccess = (message) => ({
   }
 })
 
+/**
+ * Null out the alert
+ */
 export const clearAlert = () => {
   return (dispatch) => {
     dispatch(clearAlertNotif());

@@ -54,6 +54,9 @@ class Datatable extends Component {
 
 Datatable.propTypes = {
   classes: PropTypes.object.isRequired,
+  contentType: PropTypes.string.isRequired,
+  headers: PropTypes.object,
+  data: PropTypes.object,
 };
 
 export default withStyles(styles)(Datatable);

@@ -6,6 +6,11 @@ const applicationRetrievalLoading = () => ({type: APPLICATION_RETRIEVAL_LOADING}
 const applicationRetrievalSuccess = data => ({type: APPLICATION_RETRIEVAL_SUCCESS, data});
 const applicationRetrievalFailure = error => ({type: APPLICATION_RETRIEVAL_FAILURE, error});
 
+/**
+ * API call for retrieving an application
+ * @param {Object} ceKeys 
+ * @param {String} applicationId 
+ */
 const getApplicationById = (ceKeys, applicationId) => {
   return () => {
     const ezraBaseUrl = process.env.REACT_APP_EZRA_APP_URI;
@@ -21,6 +26,11 @@ const getApplicationById = (ceKeys, applicationId) => {
   };
 };
 
+/**
+ * Retrieve an application for the ENV variable REACT_APP_EZRA_APP_ID
+ * @param {Object} ceKeys 
+ * @param {Function} successCallback 
+ */
 export const retrieveApplication = (ceKeys, successCallback) => {
   const applicationId = process.env.REACT_APP_EZRA_APP_ID;
   return (dispatch) => {
@@ -34,7 +44,7 @@ export const retrieveApplication = (ceKeys, successCallback) => {
         if (successCallback) {
           successCallback(r);
         }
-    })
+      })
       .catch(e => {
         console.error('Retrieve application failed', e);
         dispatch(applicationRetrievalFailure(e));

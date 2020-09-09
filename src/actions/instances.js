@@ -12,6 +12,13 @@ export const instanceFailure = error => ({type: INSTANCE_FAILURE, error});
 const instanceDeletionSuccess = elementKey => ({type: INSTANCE_DELETION_SUCCESS, elementKey});
 const instanceDeletionFailure = error => ({type: INSTANCE_DELETION_FAILURE, error});
 
+/**
+ * Message handler for the OAuth window
+ * @param {Event} event 
+ * @param {Promise} res 
+ * @param {Promise} rej 
+ * @param {Function} handler
+ */
 const handleOAuthLoginEvent = (event, res, rej, handler) => {
   if (window.location.href.indexOf(event.origin) === 0) {
       rej({message: 'Failed to retrieve OAuth2 information'});
@@ -19,18 +26,28 @@ const handleOAuthLoginEvent = (event, res, rej, handler) => {
       return;
   }
 
-  // Optional: ignore if it didn't come from an approved origin or if the URL is not on the message yet
-  // const approvedOauthResponders = ['https://ezra-ui.com'];
+  // Optional: ignore if it didn't come from an approved origin or if the data is not on the message yet
+  // const approvedOauthResponders = ['https://provisioning.snapshot.us.cloudelements.io'];
   // if (!approvedOauthResponders.includes(event.origin) || isNil(event.data)) {
   //     return;
   // }
 
   const eventData = event.data;
-  if (!eventData || !eventData.success) rej({message: `Failed to retrieve instance data from: ${JSON.stringify(event.data)}, ${JSON.stringify(eventData.error)}`});
+  if (!eventData || !eventData.success) {
+    rej({message: `Failed to retrieve instance data from: ${JSON.stringify(event.data)}, ${JSON.stringify(eventData.error)}`});
+  }
 
   res({data: eventData.data});
 };
 
+/**
+ * OAuth login handler. This does the following:
+ *  1. Redirects window to the oauthUrl
+ *  2. Sets up the event listener
+ *  3. Continuously let the window know we're ready to receive the message
+ * @param {Window} oauthWindow 
+ * @param {String} oauthUrl
+ */
 const handleOAuthLogin = (oauthWindow, oauthUrl) => {
   let intervalId, messageHandler;
   return new Promise((res, rej) => {
@@ -61,6 +78,17 @@ const handleOAuthLogin = (oauthWindow, oauthUrl) => {
   });
 };
 
+/**
+ * API call for creating an authenticated UI session that returns a URL that lasts 500 seconds. The full API call looks like:
+ * curl 'https://snapshot.cloud-elements.com/v1alpha1/elements/normalized-instances/applications/{applicationId}/sessions?apiKey=<VENDOR_API_KEY>&apiSecret=<VENDOR_API_SECRET>&elementKey=<ELEMENT_KEY>' \
+    -X 'POST' \
+    -H 'Accept: application/json' \
+    -H 'Authorization: <AUTHORIZATION TOKEN>' \
+    -H 'Content-Type: application/json' \
+    --compressed
+ * @param {Object} ceKeys 
+ * @param {Object} data 
+ */
 const createSession = (ceKeys, data) => {
   return () => {
     const applicationId = process.env.REACT_APP_EZRA_APP_ID;
@@ -71,7 +99,7 @@ const createSession = (ceKeys, data) => {
       apiKey: data.vendorApiKey,
       apiSecret: data.vendorSecret,
       elementKey: data.elementKey,
-      callbackUrl: `${ezraUiUri}/callback`,
+      callbackUrl: `${ezraUiUri}/callback`, // TODO: can remove
     });
     // the normalized Cloud Elements URL for retrieving an OAuth redirect
     const path = `${applicationId}/sessions`;
@@ -89,6 +117,11 @@ const createSession = (ceKeys, data) => {
   };
 };
 
+/**
+ * Retrieve the OAuth redirect URL for a particular element integration.
+ * @param {Object} ceKeys 
+ * @param {Object} vendorData 
+ */
 export const getOAuthRedirectUrl = (ceKeys, vendorData) => {
   const elementKey = vendorData.elementKey;
   return (dispatch) => {
@@ -115,6 +148,11 @@ export const getOAuthRedirectUrl = (ceKeys, vendorData) => {
   };
 };
 
+/**
+ * API call for deleting an instance for a particular element integration.
+ * @param {Object} ceKeys 
+ * @param {Object} instance 
+ */
 const deleteInstance = (ceKeys, instance) => {
   return () => {
     const baseUrl = process.env.REACT_APP_CE_ENV_URI;
@@ -130,6 +168,11 @@ const deleteInstance = (ceKeys, instance) => {
   };
 };
 
+/**
+ * Delete an instance for a particular element integration.
+ * @param {Object} ceKeys 
+ * @param {Object} instance 
+ */
 export const removeInstance = (ceKeys, instance) => {
   const elementKey = instance.element.key;
   return (dispatch) => {

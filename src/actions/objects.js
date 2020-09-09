@@ -6,6 +6,11 @@ const objectRetrievalLoading = () => ({type: OBJECT_RETRIEVAL_LOADING});
 const objectRetrievalSuccess = data => ({type: OBJECT_RETRIEVAL_SUCCESS, data});
 const objectRetrievalFailure = error => ({type: OBJECT_RETRIEVAL_FAILURE, error});
 
+/**
+ * API call for retrieving available objects from an element instance integration
+ * @param {Object} ceKeys 
+ * @param {Object} instance 
+ */
 const getObjects = (ceKeys, instance) => {
   return () => {
     const baseUrl = process.env.REACT_APP_CE_ENV_URI;
@@ -21,6 +26,12 @@ const getObjects = (ceKeys, instance) => {
   };
 };
 
+/**
+ * Retrieve the available objects from an element instance integration
+ * @param {Object} ceKeys 
+ * @param {Object} instance 
+ * @param {Function} successCallback 
+ */
 export const retrieveObjects = (ceKeys, instance, successCallback) => {
   const elementKey = instance.element.key;
   return (dispatch) => {
@@ -34,7 +45,7 @@ export const retrieveObjects = (ceKeys, instance, successCallback) => {
         if (successCallback) {
           successCallback(r);
         }
-    })
+      })
       .catch(e => {
         console.error('Retrieve objects failed', e);
         dispatch(objectRetrievalFailure(e));

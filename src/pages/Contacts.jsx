@@ -1,5 +1,8 @@
+// External dependencies
 import React from 'react';
 import PropTypes from 'prop-types';
+
+// Internal dependencies
 import DataTableWrapper from '../components/DataDashboard/DataTableWrapper';
 
 const Contacts = ({ ceKeys, appUrl, route = 'contacts' }) => {

@@ -17,4 +17,4 @@ For the contents:
       5. After successful OAuth exchange, it'll pass a data/status message back to the original opener window
       6. Dispatches a success/failure action to the store
       7. Dispatches a success/failure alert to the store
-    * ![](https://github.com/cloud-elements/ezra-sample-app/blob/main/public/ezra_customer_sequence.json)
+    * ![](create_instance_sequence.svg)

@@ -2,7 +2,7 @@
 import React from 'react';
 import {Button, Menu, MenuItem} from '@material-ui/core';
 
-const ConnectButton = ({ ceKeys, connected, deleteConnection, instance, oauthRedirectSend, setAlert, toggleDrawer, vendorData }) => {
+const ConnectButton = ({ ceKeys, checkConnection, connected, deleteConnection, instance, oauthRedirectSend, setAlert, toggleDrawer, updateConnection, vendorData }) => {
     const [menuAnchor, setAnchorEl] = React.useState(null);
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -32,6 +32,18 @@ const ConnectButton = ({ ceKeys, connected, deleteConnection, instance, oauthRed
                         handleClose();
                     }}>
                         See details
+                    </MenuItem>
+                    <MenuItem onClick={() => {
+                        checkConnection(ceKeys, instance);
+                        handleClose();
+                    }}>
+                        Check connection
+                    </MenuItem>
+                    <MenuItem onClick={() => {
+                        updateConnection(ceKeys, vendorData, instance.id);
+                        handleClose();
+                    }}>
+                        Update connection
                     </MenuItem>
                     <MenuItem onClick={() => {
                         deleteConnection(ceKeys, instance);

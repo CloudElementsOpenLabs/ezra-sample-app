@@ -137,8 +137,9 @@ export const getCreateOAuthRedirectUrl = (ceKeys, vendorData) => {
         return handleOAuthLogin(oauthWindow, redirectUrl);
       })
       .then(r => {
+        const key = r.data.elementInstance.element.key || elementKey;
         console.log('Connection creation success', r);
-        dispatch(instanceSuccess({ [elementKey] : r.data.elementInstance }));
+        dispatch(instanceSuccess({ [key] : r.data.elementInstance }));
         dispatch(alertSuccess("Connection created successfully"));
     })
       .catch(e => {
@@ -168,8 +169,9 @@ export const getUpdateOAuthRedirectUrl = (ceKeys, vendorData, instanceId) => {
         return handleOAuthLogin(oauthWindow, redirectUrl);
       })
       .then(r => {
+        const key = r.data.elementInstance.element.key || elementKey;
         console.log('Connection update success', r);
-        dispatch(instanceSuccess({ [elementKey] : r.data.elementInstance }));
+        dispatch(instanceSuccess({ [key] : r.data.elementInstance }));
         dispatch(alertSuccess("Connection updated successfully"));
     })
       .catch(e => {

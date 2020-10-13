@@ -2,7 +2,7 @@
 
 The Ezra Sample Application is a full simple application for React/Redux, demonstrating the use of Cloud Elements APIs in a UI. The primary goal is to demonstrate the use of the unified provisioning service (Ezra) to connect various integrations with ease. 
 
-> Keep in mind that Cloud Elements is a server-side API library, production applications should not store keys or make API calls directly from client-side code. This project is merely a source of sample code intended as a tool for gaining familiarity with the Cloud Elements APIs in a user-facing example. If you're interested in a version of this app that contains additional functionality, please file an [issue](https://github.com/cloud-elements/ezra-sample-app/issues/new).
+> Keep in mind that Cloud Elements is a server-side API library, production applications should not store keys or make API calls directly from client-side code. This project is merely a source of sample code intended as a tool for gaining familiarity with the Cloud Elements APIs in a user-facing example. If you're interested in a version of this app that contains additional functionality, please file an [issue](https://github.com/CloudElementsOpenLabs/ezra-sample-app/issues/new).
 
 <img width="1187" alt="UI Screenshot" src="https://user-images.githubusercontent.com/13838430/92042857-af1fad00-ed40-11ea-9291-2e75d710a870.gif">
 
@@ -18,7 +18,7 @@ The Ezra Sample Application is a full simple application for React/Redux, demons
 
 ### Environment Variables
 
-This application requires an [envirionment file](https://create-react-app.dev/docs/adding-custom-environment-variables/) to run. The environment file contains URLs, application IDs, and OAuth keys that are referenced throughout the project in the interest of keeping it easily adjustable. A sample environment file has been provided for you in [.env](https://github.com/cloud-elements/ezra-sample-app/blob/main/.env). However, you can create a local environment file to override it:
+This application requires an [envirionment file](https://create-react-app.dev/docs/adding-custom-environment-variables/) to run. The environment file contains URLs, application IDs, and OAuth keys that are referenced throughout the project in the interest of keeping it easily adjustable. A sample environment file has been provided for you in [.env](https://github.com/CloudElementsOpenLabs/ezra-sample-app/blob/main/.env). However, you can create a local environment file to override it:
 
 ```bash
  $ touch .env.local
@@ -33,7 +33,7 @@ REACT_APP_CE_ORG={your-cloud-elements-org-token}
 REACT_APP_CE_ENV=[optional for using staging or snapshot, app defaults to production]
 ```
 
-Add your vendor OAuth app keys to the `.env.local` file. Only one set is needed for the app to function, but the total number is unlimited. These keys are utilized in the [LoginCardList component](https://github.com/cloud-elements/ezra-sample-app/tree/main/src/components/LoginCardsContainer).
+Add your vendor OAuth app keys to the `.env.local` file. Only one set is needed for the app to function, but the total number is unlimited. These keys are utilized in the [LoginCardList component](https://github.com/CloudElementsOpenLabs/ezra-sample-app/tree/main/src/components/LoginCardsContainer).
 
 ```
 ## Vendor App keys

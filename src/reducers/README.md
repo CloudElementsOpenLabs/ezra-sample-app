@@ -5,10 +5,10 @@ You can reference [Redux](https://redux.js.org/basics/reducers) for details on r
 The reducers directory contains the ways that we mutate our global state (store) based on types. 
 
 For the contents:
-* The [alert](https://github.com/cloud-elements/ezra-sample-app/blob/main/src/reducers/alert.js) reducer swaps between a `null` and an object state with keys, `alertType`, `message`, and `open`
-* The [applications](https://github.com/cloud-elements/ezra-sample-app/blob/main/src/reducers/applications.js) reducer has keys `loading`, `data`, and `error`
-* The [instances](https://github.com/cloud-elements/ezra-sample-app/blob/main/src/reducers/instances.js) reducer has keys `loading`, `data`, `error`, and `activeElement`. Currently, this only stores a single instance at a time. The `data` object expects the `elementKey` as the object key and the instance is the value. 
-* The [objects](https://github.com/cloud-elements/ezra-sample-app/blob/main/src/reducers/objects.js) reducer has keys `loading`, `data`, and `error`
+* The [alert](https://github.com/CloudElementsOpenLabs/ezra-sample-app/blob/main/src/reducers/alert.js) reducer swaps between a `null` and an object state with keys, `alertType`, `message`, and `open`
+* The [applications](https://github.com/CloudElementsOpenLabs/ezra-sample-app/blob/main/src/reducers/applications.js) reducer has keys `loading`, `data`, and `error`
+* The [instances](https://github.com/CloudElementsOpenLabs/ezra-sample-app/blob/main/src/reducers/instances.js) reducer has keys `loading`, `data`, `error`, and `activeElement`. Currently, this only stores a single instance at a time. The `data` object expects the `elementKey` as the object key and the instance is the value. 
+* The [objects](https://github.com/CloudElementsOpenLabs/ezra-sample-app/blob/main/src/reducers/objects.js) reducer has keys `loading`, `data`, and `error`
 
 ### Example State
 

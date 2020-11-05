@@ -132,6 +132,26 @@ class LoginCardList extends Component {
                         }
                     }
                 },
+                {
+                    nameText: "Twitter",
+                    elementKey: "twitter",
+                    logo: `https://my-${process.env.REACT_APP_CE_ENV}.cloudelements.io/assets/img/elements/twitter.svg`,
+                    vendorApiKey: process.env.REACT_APP_TWITTER_KEY,
+                    vendorSecret: process.env.REACT_APP_TWITTER_SECRET
+                },
+                {
+                    nameText: "Etsy",
+                    elementKey: "etsy",
+                    logo: `https://my-${process.env.REACT_APP_CE_ENV}.cloudelements.io/assets/img/elements/etsy.svg`,
+                    vendorApiKey: process.env.REACT_APP_ETSY_KEY,
+                    vendorSecret: process.env.REACT_APP_ETSY_SECRET,
+                    configs: {
+                        "shop.id": {
+                            type: "string",
+                            label: "Shop Id"
+                        }
+                    }
+                },
             ]
         };
     }

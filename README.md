@@ -33,7 +33,11 @@ REACT_APP_CE_ORG={your-cloud-elements-org-token}
 REACT_APP_CE_ENV=[optional for using staging or snapshot, app defaults to production]
 ```
 
-Add your vendor OAuth app keys to the `.env.local` file. Only one set is needed for the app to function, but the total number is unlimited. These keys are utilized in the [LoginCardList component](https://github.com/CloudElementsOpenLabs/ezra-sample-app/tree/main/src/components/LoginCardsContainer).
+The user and org tokens can be found on Cloud Elements UI, in the user profile popout on the bottom left. For example: https://my-snapshot.cloudelements.io/welcome
+
+---
+
+Add your vendor OAuth app keys to the `.env.local` file. Only one set is needed for the app to function, but the total number is unlimited. These keys are utilized in the [LoginCardList component](https://github.com/CloudElementsOpenLabs/ezra-sample-app/tree/main/src/components/LoginCardsContainer). Please note that your application should have the Ezra callback URL registered, (i.e., https://provisioning.snapshot.us.cloudelements.io/callback).
 
 ```
 ## Vendor App keys

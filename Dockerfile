@@ -1,10 +1,11 @@
 FROM node:alpine
 WORKDIR /usr/src/app
-COPY . .
 RUN apk update && \
     apk upgrade && \
-    apk add --no-cache bash git && \
-    npm install
+    apk add --no-cache bash git
 
+COPY package*.json ./
+RUN npm install
+COPY . .
 EXPOSE 3000
 CMD [ "npm", "start" ]

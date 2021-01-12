@@ -94,7 +94,7 @@ const handleOAuthLogin = (oauthWindow, oauthUrl) => {
 const createSession = (ceKeys, data, instanceId = "") => {
   return () => {
     const applicationId = process.env.REACT_APP_EZRA_APP_ID;
-    const baseEzraUrl = process.env.REACT_APP_EZRA_APP_URI;
+    const baseEzraUrl = `https://${process.env.REACT_APP_CE_ENV}.cloud-elements.com/v1alpha1/elements/normalized-instances/applications`;
       // The query parameters with the api key, api secret and element key
     const queryParams = queryString.stringify({
       apiKey: data.vendorApiKey,
@@ -189,8 +189,8 @@ export const getUpdateOAuthRedirectUrl = (ceKeys, vendorData, instanceId) => {
  */
 const deleteInstance = (ceKeys, instance) => {
   return () => {
-    const baseUrl = process.env.REACT_APP_CE_ENV_URI;
-    // place everything above into an object for fetch to use
+    const baseUrl = `https://${process.env.REACT_APP_CE_ENV}.cloud-elements.com`;
+       // place everything above into an object for fetch to use
     const config = {
         method: 'DELETE',
         headers: {
@@ -232,7 +232,7 @@ export const removeInstance = (ceKeys, instance) => {
  */
 const pingInstance = (ceKeys, instance) => {
   return () => {
-    const baseUrl = process.env.REACT_APP_CE_ENV_URI;
+    const baseUrl = `https://${process.env.REACT_APP_CE_ENV}.cloud-elements.com`;
     // place everything above into an object for fetch to use
     const config = {
         method: 'GET',

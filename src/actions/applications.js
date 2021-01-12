@@ -13,7 +13,7 @@ const applicationRetrievalFailure = error => ({type: APPLICATION_RETRIEVAL_FAILU
  */
 const getApplicationById = (ceKeys, applicationId) => {
   return () => {
-    const ezraBaseUrl = process.env.REACT_APP_EZRA_APP_URI;
+    const ezraBaseUrl = `https://${process.env.REACT_APP_CE_ENV}.cloud-elements.com/v1alpha1/elements/normalized-instances/applications`;
     const config = {
       method: 'GET',
       headers: {

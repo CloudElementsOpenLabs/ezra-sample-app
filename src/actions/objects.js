@@ -13,7 +13,7 @@ const objectRetrievalFailure = error => ({type: OBJECT_RETRIEVAL_FAILURE, error}
  */
 const getObjects = (ceKeys, instance) => {
   return () => {
-    const baseUrl = process.env.REACT_APP_CE_ENV_URI;
+    const baseUrl = `https://${process.env.REACT_APP_CE_ENV}.cloud-elements.com`;
     const config = {
       method: 'GET',
       headers: {

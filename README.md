@@ -64,7 +64,11 @@ curl --location --request POST 'https://staging.cloud-elements.com/v1alpha1/elem
 }'
 ```
 
-**Response Body**:
+**Example Response Body**
+An example response body is below.
+
+>* Make sure you save the `applicationID`. You will need this in a following step.
+
 ```
 {
     "applicationID": "123456abc-defg-123a-bcd5-edf8142324fc",
@@ -127,7 +131,7 @@ curl --location --request POST 'https://staging.cloud-elements.com/v1alpha1/elem
     }
 }
 ```
-* Make sure to grab the `applicationID` from the response body of your POST request.
+> **Note**: For this demo app, you will be unable to update the branding, even using the branding API. To update branding for your own app, you will use the branding API directly. For this demo, you can ignore the above branding object in the response body as you will not need it.
 
 ### Environment Variables
 
@@ -144,10 +148,10 @@ Add your Cloud Elements keys to the `.env.local` file:
 ## Cloud Elements keys/environment
 REACT_APP_CE_USER={your-cloud-elements-user-token}
 REACT_APP_CE_ORG={your-cloud-elements-org-token}
-REACT_APP_CE_ENV=[optional for using staging or snapshot, app defaults to production]
+REACT_APP_CE_ENV={one-of: staging, production, or snapshot}
 ```
 
-The user and org tokens can be found on Cloud Elements UI, in the user profile popout on the bottom left. For example: https://my-snapshot.cloudelements.io/welcome
+The user and org tokens can be found on Cloud Elements UI, in the user profile popout on the bottom left. For example: https://my-snapshot.cloudelements.io/welcome. Your environment needs to match the User and Organization secrets you passed in when making the `POST` request above.
 
 ---
 

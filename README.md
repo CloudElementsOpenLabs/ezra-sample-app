@@ -18,9 +18,9 @@ The Ezra Sample Application is a full simple application for React/Redux, demons
 
 ### Create an Application (Get an Application ID)
 
-Before running this demo application of standardized auth, you will need to make a single API call to get an `application id` that you can then pass in to your environment variables (`.env` file).
+Before running this demo application of standardized auth, you will need to make a single API call to get an `application id` that you can then pass in to your environment variables (`.env` or `.env.local` file).
 
-To do this, make a `POST` request to the following URL with the below request body `https://{environment}.cloud-elements.com/v1alpha1/elements/normalized-instances/applications`.
+To do this, make a `POST` request to the following URL with the below request body and headers `https://{environment}.cloud-elements.com/v1alpha1/elements/normalized-instances/applications`.
 
 **Request Body**:
 ```

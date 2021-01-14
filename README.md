@@ -14,36 +14,171 @@ The Ezra Sample Application is a full simple application for React/Redux, demons
 * [Router](https://github.com/supasate/connected-react-router)/[Redux](https://redux.js.org/)/[React](https://reactjs.org/) included
 * [Docker](https://www.docker.com/) container for production build
 
-## Installation
+## Prerequisites
+
+### Create an Application (Get an Application ID)
+
+Before running this demo application of standardized auth, you will need to make a single API call to get an `application id` that you can then pass in to your environment variables (`.env` or `.env.local` file).
+
+To do this, make a `POST` request to the following URL with the below request body and headers `https://{environment}.cloud-elements.com/v1alpha1/elements/normalized-instances/applications`.
+
+**Request Body**:
+```
+{
+    "appProvidedElAgnosticMetadata": true,
+    "appProvidedElSpecificMetadata": true,
+    "notificationCallback": {
+        "url": "https://ce-demo-app.free.beeceptor.com"
+    },
+    "description": "DemoApp",
+    "includeCETagline": true,
+    "name": "Unified authentication"
+}
+```
+**Request Headers**:
+```
+'Authorization: User {userToken}, Organization {organizationToken}'
+'Content-Type: application/json'
+'Accept : application/json'
+```
+>**Notes**:
+>* Make sure you choose an environment (staging, snapshot, or production) and pass it into the above URL.
+>* Make sure your User and Organization secrets are from the environment you choose.
+
+
+**Example cUrl**:
+
+```
+curl --location --request POST 'https://staging.cloud-elements.com/v1alpha1/elements/normalized-instances/applications' \
+--header 'Authorization: User ----, Organization ----' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "appProvidedElAgnosticMetadata": true,
+    "appProvidedElSpecificMetadata": true,
+    "notificationCallback": {
+        "url": "https://ce-demo-app.free.beeceptor.com"
+    },
+    "description": "DemoApp",
+    "includeCETagline": true,
+    "name": "Unified authentication"
+}'
+```
+
+**Example Response Body**
+An example response body is below.
+
+>* Make sure you save the `applicationID`. You will need this in a following step.
+
+```
+{
+    "applicationID": "123456abc-defg-123a-bcd5-edf8142324fc",
+    "name": "Unified authentication",
+    "description": "DemoApp",
+    "appProvidedElementSpecificConfig": false,
+    "appProvidedElementAgnosticConfig": false,
+    "identityID": "75f3deea-613d-4dbd-b17c-16cedc3ef176",
+    "createdDate": "2021-01-12 12:45:57",
+    "updatedDate": "2021-01-12 12:45:57",
+    "notificationCallback": {
+        "url": "https://ce-demo-app.free.beeceptor.com",
+        "format": "json",
+        "token": "FGVOK0FV51dW2BUN3xWb"
+    },
+    "branding": {
+        "headerFontColor": "",
+        "headerFontType": "",
+        "logo": "",
+        "backgroundColor": "",
+        "formLabelFontColor": "",
+        "formLabelFontType": "",
+        "formInputFontType": "",
+        "formInputBorderColor": "",
+        "formInputBorderRadius": "",
+        "formInputBackgroundColor": "",
+        "formInputPasswordIconColor": "",
+        "radioFieldColor": "",
+        "dropdownFieldFontType": "",
+        "dropdownFieldBorderColor": "",
+        "dropdownFieldBorderRadius": "",
+        "dropdownFieldBackgroundColor": "",
+        "buttonBorderColor": "",
+        "buttonBorderRadius": "",
+        "buttonBackgroundColor": "",
+        "buttonFontType": "",
+        "buttonFontColor": "",
+        "optionalGuidanceMessageFontType": "",
+        "optionalGuidanceMessageFontColor": "",
+        "disclaimerFontType": "",
+        "disclaimerFontColor": "",
+        "linkFontType": "",
+        "linkFontColor": "",
+        "errorMessageBackgroundColor": "",
+        "errorMessageFontColor": "",
+        "errorMessageFontType": "",
+        "includeCETaglineLink": false,
+        "linkOne": {
+            "text": "",
+            "link": ""
+        },
+        "linkTwo": {
+            "text": "",
+            "link": ""
+        },
+        "linkThree": {
+            "text": "",
+            "link": ""
+        }
+    }
+}
+```
+> **Note**: For this demo app, you will be unable to update the branding, even using the branding API. To update branding for your own app, you will use the branding API directly. For this demo, you can ignore the above branding object in the response body as you will not need it.
 
 ### Environment Variables
 
-This application requires an [envirionment file](https://create-react-app.dev/docs/adding-custom-environment-variables/) to run. The environment file contains URLs, application IDs, and OAuth keys that are referenced throughout the project in the interest of keeping it easily adjustable. A sample environment file has been provided for you in [.env](https://github.com/CloudElementsOpenLabs/ezra-sample-app/blob/main/.env). However, you can create a local environment file to override it:
+This application requires an [envirionment file](https://create-react-app.dev/docs/adding-custom-environment-variables/) to run. The environment file contains desired environment, application IDs, and OAuth keys that are referenced throughout the project in the interest of keeping it easily adjustable. A sample environment file has been provided for you in [.env](https://github.com/CloudElementsOpenLabs/ezra-sample-app/blob/main/.env). However, you can create a local environment file to override it:
 
 ```bash
  $ touch .env.local
  ```
 
+#### Step 1
 Add your Cloud Elements keys to the `.env.local` file:
 
 ```
-## Cloud Elements keys
+## Cloud Elements keys/environment
 REACT_APP_CE_USER={your-cloud-elements-user-token}
 REACT_APP_CE_ORG={your-cloud-elements-org-token}
-REACT_APP_CE_ENV=[optional for using staging or snapshot, app defaults to production]
+REACT_APP_CE_ENV={one-of: staging, production, or snapshot}
 ```
 
-The user and org tokens can be found on Cloud Elements UI, in the user profile popout on the bottom left. For example: https://my-snapshot.cloudelements.io/welcome
+The user and org tokens can be found on Cloud Elements UI, in the user profile popout on the bottom left. For example: https://my-snapshot.cloudelements.io/welcome. Your environment needs to match the User and Organization secrets you passed in when making the `POST` request above.
 
 ---
 
-Add your vendor OAuth app keys to the `.env.local` file. Only one set is needed for the app to function, but the total number is unlimited. These keys are utilized in the [LoginCardList component](https://github.com/CloudElementsOpenLabs/ezra-sample-app/tree/main/src/components/LoginCardsContainer). Please note that your application should have the Ezra callback URL registered, (i.e., https://provisioning.snapshot.us.cloudelements.io/callback).
+#### Step 2
+Add your vendor OAuth app keys to the `.env.local` file. Only one set is needed for the app to function, but the total number is unlimited. These keys are utilized in the [LoginCardList component](https://github.com/CloudElementsOpenLabs/ezra-sample-app/tree/main/src/components/LoginCardsContainer).
+
+> **Note**: Your vendor OAuth application should have the Ezra callback URL registered, ie one of: `https://provisioning.snapshot.us.cloudelements.io/callback`, `https://provisioning.staging.us.cloudelements.io/callback`, or `https://provisioning.production.us.cloudelements.io/callback`. You will add this callback URL as a redirect uri when you create a vendor app.
 
 ```
 ## Vendor App keys
 REACT_APP_HUBSPOT_KEY={your-hubspot-oauth-app-key}
 REACT_APP_HUBSPOT_SECRET={your-hubspot-oauth-app-secret}
 ```
+
+---
+
+#### Step 3
+Add the `applicationID` from the response body you received when creating your application (prerequisite step above).
+
+```
+# Provisioning service application ID
+REACT_APP_EZRA_APP_ID={your-applicationID}
+```
+
+Now you are ready to run the app!
+
+## Installation
 
 ### Docker
 Skip any dependencies and just run the following to get started:

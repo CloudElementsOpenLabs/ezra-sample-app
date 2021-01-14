@@ -35,7 +35,7 @@ const styles = theme => ({
 const SettingsContainer = ({appDetails, ceKeys, classes, isApplicationLoading, getApplicationDetails, route }) => {
     const [isDrawerOpen, toggleDrawer] = React.useState(false);
     const applicationId = process.env.REACT_APP_EZRA_APP_ID;
-    const ezraUiUri = process.env.REACT_APP_EZRA_UI_URI;
+    const ezraUiUri = `https://provisioning.${process.env.REACT_APP_CE_ENV}.us.cloudelements.io`;
     const applicationContent = applicationId
         ? `Application ID: ${applicationId}`
         : `No application setup. Please setup an application to continue`;

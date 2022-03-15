@@ -4,6 +4,8 @@ The Ezra Sample Application is a full simple application for React/Redux, demons
 
 > Keep in mind that Cloud Elements is a server-side API library, production applications should not store keys or make API calls directly from client-side code. This project is merely a source of sample code intended as a tool for gaining familiarity with the Cloud Elements APIs in a user-facing example. If you're interested in a version of this app that contains additional functionality, please file an [issue](https://github.com/CloudElementsOpenLabs/ezra-sample-app/issues/new).
 
+See documentation [here](https://docs.cloud-elements.com/home/standardized-auth-overview) for more information.
+
 <img width="1187" alt="UI Screenshot" src="https://user-images.githubusercontent.com/13838430/92042857-af1fad00-ed40-11ea-9291-2e75d710a870.gif">
 
 ## Features
